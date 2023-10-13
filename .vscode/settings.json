@@ -1,0 +1,12 @@
+{
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "ClassNames",
+    "classNames",
+    ".*Styles*",
+    "cn*"
+  ],
+  "css.lint.unknownAtRules": "ignore"
+}
