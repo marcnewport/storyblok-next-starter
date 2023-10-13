@@ -1,7 +1,7 @@
-import { storyblokInit, apiPlugin} from "@storyblok/react/rsc"
-import StoryblokProvider from "@/components/StoryblokProvider"
+import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
+import StoryblokProvider from '@/components/StoryblokProvider'
 
-import './globals.css';
+import './globals.css'
 
 export const metadata = {
   title: 'Storyblok and Next.js 13',
@@ -9,8 +9,8 @@ export const metadata = {
 }
 
 storyblokInit({
-  accessToken: 'your-access-token',
-  use: [apiPlugin]
+  accessToken: 'r3HG0cZz6slNmpP9gQuZ0Att',
+  use: [apiPlugin],
 })
 
 export default function RootLayout({ children }) {
