@@ -1,6 +1,6 @@
 import { storyblokEditable } from '@storyblok/react/rsc'
 
-export default function Teaser({ blok }) {
+export function Teaser({ blok }) {
   return (
     <h2 className="mb-10 text-2xl" {...storyblokEditable(blok)}>
       {blok.headline}

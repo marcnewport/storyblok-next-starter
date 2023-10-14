@@ -1,14 +1,11 @@
-/** 1. Tag it as client component */
 'use client'
+
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
+import { Page } from '@/components/page'
+import { Teaser } from '@/components/teaser'
+import { Grid } from '@/components/grid'
+import { Feature } from '@/components/feature'
 
-/** 2. Import your components */
-import Page from '@/components/Page'
-import Teaser from '@/components/Teaser'
-import Grid from '@/components/Grid'
-import Feature from '@/components/Feature'
-
-/** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
@@ -20,6 +17,6 @@ storyblokInit({
   },
 })
 
-export default function StoryblokProvider({ children }) {
+export function StoryblokProvider({ children }) {
   return children
 }

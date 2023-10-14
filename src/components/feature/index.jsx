@@ -1,6 +1,6 @@
 import { storyblokEditable } from '@storyblok/react/rsc'
 
-export default function Feature({ blok }) {
+export function Feature({ blok }) {
   return (
     <div className="column feature" {...storyblokEditable(blok)}>
       {blok.name}
