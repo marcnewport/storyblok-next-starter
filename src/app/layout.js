@@ -1,8 +1,8 @@
 import './globals.css'
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
-import { StoryblokProvider } from '@/components/StoryblokProvider'
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
+import { StoryblokProvider } from '@/components/storyblok/storyblok-provider'
+import { Header } from './header'
+import { Footer } from './footer'
 
 export const metadata = {
   title: 'Storyblok and Next.js 13',
@@ -18,10 +18,12 @@ export default function RootLayout({ children }) {
   return (
     <StoryblokProvider>
       <html lang="en">
-        <body className="flex flex-col">
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+        <body className="flex flex-col bg-slate-100">
+          <Header />
+          <main className="bg-white">{children}</main>
+          <footer className="relative mt-auto p-4">
+            <Footer />
+          </footer>
         </body>
       </html>
     </StoryblokProvider>
