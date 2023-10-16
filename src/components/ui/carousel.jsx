@@ -1,4 +1,4 @@
-import { Children, useState, useRef, useEffect, forwardRef } from 'react'
+import { Children, useState, useRef, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from './button'
