@@ -1,10 +1,10 @@
 'use client'
 
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
-import { Page } from '@/components/page'
-import { Teaser } from '@/components/teaser'
-import { Grid } from '@/components/grid'
-import { Feature } from '@/components/feature'
+import { Page } from './page'
+import { Teaser } from './teaser'
+import { Grid } from './grid'
+import { Feature } from './feature'
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
