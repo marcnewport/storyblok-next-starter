@@ -34,8 +34,16 @@ export function SiteHeader({ blok }) {
             <span className="sr-only">{blok.site_name}</span>
           </a>
         </h1>
-        {blok.navigation_menu && isMobile && <MobileNavigation blok={blok} />}
-        {blok.navigation_menu && !isMobile && <DesktopNavigation blok={blok} />}
+        {blok.navigation_menu && (
+          <>
+            <div className="hidden sm:block">
+              <DesktopNavigation blok={blok} />
+            </div>
+            <div className="ml-auto sm:hidden">
+              <MobileNavigation blok={blok} />
+            </div>
+          </>
+        )}
       </div>
     </div>
   )
