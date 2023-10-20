@@ -1,11 +1,11 @@
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import { StoryblokComponent } from '@storyblok/react'
 
-export function Page({ blok }) {
+export function Page({ blok, title }) {
   return (
-    <div {...storyblokEditable(blok)}>
-      {blok.body.map((nestedBlok) => (
-        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+    <>
+      {blok.body.map((it) => (
+        <StoryblokComponent key={it._uid} blok={it} isStory />
       ))}
-    </div>
+    </>
   )
 }
