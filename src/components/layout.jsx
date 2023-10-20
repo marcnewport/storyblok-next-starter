@@ -5,9 +5,11 @@ export function Layout({ header, children }) {
 
   return (
     <div className="flex min-h-full flex-col">
-      <header>
-        <StoryblokComponent blok={header.content} />
-      </header>
+      {header?.content && (
+        <header>
+          <StoryblokComponent blok={header.content} />
+        </header>
+      )}
       <main className="flex-grow bg-white">{children}</main>
       <footer className="justify-self-end">
         <Footer />
@@ -15,6 +17,7 @@ export function Layout({ header, children }) {
     </div>
   )
 }
+
 export function Footer() {
   return <p className="p-4">©Copyright 2050 by nobody. All rights reversed.</p>
 }
