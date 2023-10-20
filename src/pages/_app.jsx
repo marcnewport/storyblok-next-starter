@@ -7,8 +7,8 @@ export default function App({ Component, pageProps }) {
   const { story, header } = pageProps
 
   // TODO : meta tags
-  const siteName = header.content.site_name
-  const pageName = story.content.title ?? story.name
+  const siteName = header?.content?.site_name
+  const pageName = story?.content?.title ?? story?.name
   const title = [pageName, siteName].filter((it) => !!it).join(' | ')
 
   return (
