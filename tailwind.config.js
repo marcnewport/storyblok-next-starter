@@ -27,5 +27,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  // Used for styling options from CMS.
+  safelist: ['grid-cols-2', 'grid-cols-3', 'grid-cols-4'],
 }
