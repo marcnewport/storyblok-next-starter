@@ -1,24 +1,35 @@
-import Head from 'next/head'
-import { getStoryblokApi } from '@storyblok/react'
+import {
+  StoryblokComponent,
+  getStoryblokApi,
+  useStoryblokState,
+} from '@storyblok/react'
 
-export default function Page() {
-  return (
-    <div>
-      <Head>{/* <MetaData /> */}</Head>
-    </div>
-  )
+export default function Slug({ story }) {
+  story = useStoryblokState(story)
+
+  return <StoryblokComponent blok={story.content} title={story.name} />
 }
 
 export async function getStaticProps({ params }) {
   const slug = params.slug ? params.slug.join('/') : 'home'
-
   const storyblokApi = getStoryblokApi()
-  const response = await storyblokApi.get(`cdn/stories/${slug}`, {
+
+  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
     version: 'draft',
   })
 
+  const { data: header } = await storyblokApi.get(
+    'cdn/stories/site/site-header',
+    {
+      version: 'draft',
+    }
+  )
+
   return {
-    props: { ...response.data },
+    props: {
+      header: header.story ?? false,
+      story: data.story ?? false,
+    },
     revalidate: 3600,
   }
 }

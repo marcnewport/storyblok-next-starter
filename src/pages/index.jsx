@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import {
   StoryblokComponent,
   getStoryblokApi,
@@ -8,7 +7,7 @@ import {
 export default function Home({ story }) {
   story = useStoryblokState(story)
 
-  return <StoryblokComponent blok={story.content} />
+  return <StoryblokComponent blok={story.content} title={story.name} />
 }
 
 export async function getStaticProps() {
@@ -16,13 +15,14 @@ export async function getStaticProps() {
 
   const { data } = await storyblokApi.get('cdn/stories/home', {
     version: 'draft',
-    resolve_links: 'url',
   })
 
-  const { data: header } = await storyblokApi.get('cdn/stories/site-header', {
-    version: 'draft',
-    resolve_links: 'url',
-  })
+  const { data: header } = await storyblokApi.get(
+    'cdn/stories/site/site-header',
+    {
+      version: 'draft',
+    }
+  )
 
   return {
     props: {
