@@ -2,7 +2,7 @@ import { storyblokEditable } from '@storyblok/react'
 import { Button as UiButton } from '@/components/ui/button'
 
 export function Button({ blok }) {
-  console.log(blok)
+  // console.log(blok)
   return (
     <UiButton {...storyblokEditable(blok)} variant={blok.variant} asChild>
       <a href={blok.link.url}>

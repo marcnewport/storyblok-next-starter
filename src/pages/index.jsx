@@ -17,16 +17,16 @@ export async function getStaticProps() {
     version: 'draft',
   })
 
-  const { data: header } = await storyblokApi.get(
-    'cdn/stories/site/site-header',
-    {
-      version: 'draft',
-    }
-  )
+  // const { data: header } = await storyblokApi.get(
+  //   'cdn/stories/site/site-header',
+  //   {
+  //     version: 'draft',
+  //   }
+  // )
 
   return {
     props: {
-      header: header.story ?? false,
+      // header: header.story ?? false,
       story: data.story ?? false,
     },
     revalidate: 3600,

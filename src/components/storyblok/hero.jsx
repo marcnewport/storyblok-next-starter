@@ -1,36 +1,38 @@
 import { cn } from '@/lib/utils'
-import { storyblokEditable } from '@storyblok/react'
+import { StoryblokComponent, storyblokEditable } from '@storyblok/react'
 import { Richtext } from '../richtext'
 
 export function Hero({ blok }) {
   let bg = 'linear-gradient(to top right, #9890e3 0%, #b1f4cf 100%'
 
-  if (blok.background_image.filename) {
-    bg = `url("${blok.background_image.filename}")`
+  if (blok.image?.filename) {
+    bg = `url("${blok.image.filename}")`
   }
 
   return (
-    <section
-      className="bg-cover bg-center px-6 py-10"
-      style={{ backgroundImage: bg }}
-      {...storyblokEditable(blok)}
-    >
-      <div
-        className={cn(
-          'text-shadow mx-auto flex h-[75vh] max-w-4xl flex-col justify-end sm:pr-10 md:pr-20'
-        )}
-      >
-        {blok.title && (
-          <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight">
-            {blok.title}
-          </h2>
-        )}
-        {blok.description && (
-          <Richtext
-            field={blok.description}
-            className="mt-4 text-lg font-light leading-normal text-white sm:text-xl sm:leading-normal md:text-2xl md:leading-normal [&_b]:font-semibold"
+    <section className="bg-orange-200 px-6 py-10" {...storyblokEditable(blok)}>
+      <div className="contain gap-2 bg-green-200 sm:flex">
+        <div className="flex-1">
+          {blok.title && (
+            <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight">
+              {blok.title}
+            </h2>
+          )}
+          {blok.buttons && (
+            <div className="flex items-center justify-center gap-4">
+              {blok.buttons.map((it, id) => (
+                <StoryblokComponent key={id} blok={it} />
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="flex-1">
+          <img
+            src={blok.image.filename}
+            alt={blok.image.alt}
+            className="block w-full rounded-md shadow-md"
           />
-        )}
+        </div>
       </div>
     </section>
   )

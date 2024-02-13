@@ -18,16 +18,19 @@ export async function getStaticProps({ params }) {
     version: 'draft',
   })
 
-  const { data: header } = await storyblokApi.get(
+  const { data: headerData } = await storyblokApi.get(
     'cdn/stories/site/site-header',
     {
       version: 'draft',
     }
   )
 
+  const isHeader = slug === 'site/site-header'
+  const header = isHeader ? false : headerData.story ?? false
+
   return {
     props: {
-      header: header.story ?? false,
+      header,
       story: data.story ?? false,
     },
     revalidate: 3600,
